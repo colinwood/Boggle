@@ -1,0 +1,10 @@
+C:\Users\Colin\Desktop\New folder\StringSocket\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\New folder\StringSocket\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\New folder\StringSocket\obj\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\New folder\StringSocket\obj\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\New folder\StringSocket\obj\Debug\StringSocket.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Desktop\PS7\StringSocket\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\PS7\StringSocket\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\PS7\StringSocket\obj\Debug\StringSocket.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Desktop\PS7\StringSocket\obj\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\PS7\StringSocket\obj\Debug\StringSocket.pdb

@@ -1,0 +1,22 @@
+C:\Users\Colin\Desktop\New folder\StringSocketTester\bin\Debug\StringSocketTester.dll
+C:\Users\Colin\Desktop\New folder\StringSocketTester\bin\Debug\StringSocketTester.pdb
+C:\Users\Colin\Desktop\New folder\StringSocketTester\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\New folder\StringSocketTester\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\New folder\StringSocketTester\obj\Debug\StringSocketTester.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Desktop\New folder\StringSocketTester\obj\Debug\StringSocketTester.dll
+C:\Users\Colin\Desktop\New folder\StringSocketTester\obj\Debug\StringSocketTester.pdb
+C:\Users\Colin\Desktop\PS7\StringSocketTester\bin\Debug\StringSocketTester.dll
+C:\Users\Colin\Desktop\PS7\StringSocketTester\bin\Debug\StringSocketTester.pdb
+C:\Users\Colin\Desktop\PS7\StringSocketTester\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\PS7\StringSocketTester\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\PS7\StringSocketTester\obj\Debug\StringSocketTester.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Desktop\PS7\StringSocketTester\obj\Debug\StringSocketTester.dll
+C:\Users\Colin\Desktop\PS7\StringSocketTester\obj\Debug\StringSocketTester.pdb
+C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocketTester\bin\Debug\StringSocketTester.dll
+C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocketTester\bin\Debug\StringSocketTester.pdb
+C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocketTester\bin\Debug\StringSocket.dll
+C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocketTester\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocketTester\obj\Debug\StringSocketTester.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocketTester\obj\Debug\StringSocketTester.dll
+C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocketTester\obj\Debug\StringSocketTester.pdb
+C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocketTester\bin\Debug\StringSocket.xml
