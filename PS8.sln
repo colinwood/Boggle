@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleServer", "BoggleServer\BoggleServer.csproj", "{61449CF1-AD73-45D8-B543-2C2208E23204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyClient", "DummyClient\DummyClient.csproj", "{BFAFF8F8-993D-4AC8-8DEE-A8711B746E09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleServerTest", "DummyClient\BoggleServerTest.csproj", "{BFAFF8F8-993D-4AC8-8DEE-A8711B746E09}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution

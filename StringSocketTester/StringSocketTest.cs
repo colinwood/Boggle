@@ -6126,7 +6126,7 @@ namespace StringSocketTester
 
                     // Now send the data. Hope those receive requests didn't block!
                     // NOTE: This is the line that has been changed
-
+                    
                     sendSocket.BeginSend("Hello world\n", (e, o) => { p3 = o; mre1.Set(); }, 3);
                     sendSocket.BeginSend("This is a test\n", (e, o) => { p4 = o; mre2.Set(); }, 4);
                     Assert.AreEqual(3, p3);

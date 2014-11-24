@@ -234,8 +234,7 @@ namespace CustomNetworking
                sent_bytes = socket.EndSend(result);
            }
            catch (Exception e)
-           {
-            
+           {     
                Send_Request request = send_queue.Dequeue();
                ThreadPool.QueueUserWorkItem(x => request.callback( e,request.payload));
            }
@@ -348,7 +347,8 @@ namespace CustomNetworking
                receive_queue.Enqueue(new Receive_Request(callback, payload));
                if (receive_queue.Count == 1)
                {
-                   GetBytes();
+                   Thread t = new Thread(GetBytes);
+                   t.Start();                               
                }
            }
        }
@@ -388,7 +388,8 @@ namespace CustomNetworking
                        
                        //call that requests callback and dequeue it
                        Receive_Request next_request = receive_queue.Dequeue();                  
-                       ThreadPool.QueueUserWorkItem(x => next_request.callback("", e, next_request.payload));               
+                       ThreadPool.QueueUserWorkItem(x => next_request.callback(null, e, next_request.payload));               
+                       
                    }
                }
              }
