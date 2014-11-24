@@ -276,7 +276,9 @@ namespace BoggleServer
                 this.dictionary = dictionary;
                 this.player_1_words = new HashSet<string>();
                 this.player_2_words = new HashSet<string>();
-
+                this.common_words = new HashSet<string>();
+                this.player_1_illegal = new HashSet<string>();
+                this.player_2_illegal = new HashSet<string>();
                 this.player_1_score = 0;
                 this.player_2_score = 0;
                 this.players_connected = true;
@@ -475,7 +477,6 @@ namespace BoggleServer
                             player_2.string_socket.BeginSend("SCORE " + this.player_1_score + " " + this.player_2_score + "\n", (e, o) => { }, player_1.string_socket);
                         }                   
                 }
-
             }
            
             /// <summary>
@@ -512,8 +513,8 @@ namespace BoggleServer
             /// </summary>
             private void EndGame()
             {
-                SendScore();
-                string player_1_summary = String.Format("STOP {0} {1} {2} {3} {5} {6} {7} {8} {9} {10}\n", 
+                //format a string to be sent to the client with a summary
+                string player_1_summary = String.Format("STOP {0} {1} {2} {3} {5} {6} {7} {8} {9}\n", 
                     player_1_words.Count(),   
                     String.Join(" ", player_1_words),
                     player_2_words.Count(),
@@ -526,7 +527,7 @@ namespace BoggleServer
                     String.Join(" ", player_2_illegal)                    
                     );
 
-                string player_2_summary = String.Format("STOP {0} {1} {2} {3} {5} {6} {7} {8} {9} {10}\n",
+                string player_2_summary = String.Format("STOP {0} {1} {2} {3} {5} {6} {7} {8} {9}\n",
                     player_2_words.Count(),
                     String.Join(" ", player_2_words),
                     player_1_words.Count(),
@@ -553,7 +554,7 @@ namespace BoggleServer
             /// <param name="mickey"></param>
             private void CheckConnections(Object mickey)
             {
-                while (true)
+                while (true && game_timer != 0)
                 {
                     //sleep for 1/2 a second to conserve resources
                     Thread.Sleep(500);
