@@ -11,6 +11,9 @@ using CustomNetworking;
 using BB;
 using System.Threading;
 
+
+
+
 namespace BoggleServer
 {
     class BoggleServer
@@ -254,6 +257,11 @@ namespace BoggleServer
                         ServerStatus("Player connected and game started : " + player_1.player_name + " vs " + player_2.player_name );
                     }
                 }
+                //ignore any invalid commands
+                else if (!IsValidPlayCommand(line) && player_socket.SocketConnected())
+                {
+                    player_socket.BeginSend("IGNORING" + line, null, null );
+                }
             }          
         }
 
@@ -281,7 +289,7 @@ namespace BoggleServer
         {
             while (true)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(200);
 
                 //Create a list and find all the games that don't have connected players. 
                 HashSet<BoggleGame> to_delete = new HashSet<BoggleGame>();
@@ -295,6 +303,19 @@ namespace BoggleServer
                 foreach (BoggleGame game in to_delete)
                 {
                     game_set.Remove(game);
+                }
+                //Check for players waiting that are not connected
+                HashSet<Player> players_to_delete = new HashSet<Player>();
+                foreach (Player player in player_queue)
+                {
+                    if (!player.string_socket.SocketConnected())
+                    {
+                        players_to_delete.Add(player);
+                    }
+                }
+                foreach (Player p in players_to_delete)
+                {
+                    player_queue.Dequeue();
                 }
                 ServerStatus("");
             }      

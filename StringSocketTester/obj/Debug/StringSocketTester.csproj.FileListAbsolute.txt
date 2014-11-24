@@ -22,7 +22,6 @@ C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocket
 C:\Users\Colin\Documents\Visual Studio 2013\Projects\PS7Skeleton(1)\StringSocketTester\bin\Debug\StringSocket.xml
 C:\Users\Colin\Desktop\BOggle\StringSocketTester\bin\Debug\StringSocketTester.dll
 C:\Users\Colin\Desktop\BOggle\StringSocketTester\bin\Debug\StringSocketTester.pdb
-C:\Users\Colin\Desktop\BOggle\StringSocketTester\bin\Debug\StringSocket.dll
 C:\Users\Colin\Desktop\BOggle\StringSocketTester\bin\Debug\StringSocket.pdb
 C:\Users\Colin\Desktop\BOggle\StringSocketTester\bin\Debug\StringSocket.xml
 C:\Users\Colin\Desktop\BOggle\StringSocketTester\obj\Debug\StringSocketTester.csprojResolveAssemblyReference.cache
