@@ -1,0 +1,8 @@
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\DummyClient.exe.config
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\DummyClient.exe
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\DummyClient.pdb
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\StringSocket.xml
+C:\Users\Colin\Desktop\BOggle\DummyClient\obj\Debug\DummyClient.exe
+C:\Users\Colin\Desktop\BOggle\DummyClient\obj\Debug\DummyClient.pdb

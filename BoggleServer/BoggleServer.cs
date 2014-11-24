@@ -131,6 +131,7 @@ namespace BoggleServer
         {
             lock (player_queue)
             {
+                server.BeginAcceptSocket(PlayerConnected, null);
                 ServerStatus("New Player Connected");
                 Socket listener;
                 try
@@ -143,7 +144,7 @@ namespace BoggleServer
                 {
                     Console.WriteLine(e.Message);
                 }
-                server.BeginAcceptSocket(PlayerConnected, null);
+                
             } 
         }
 
@@ -201,6 +202,20 @@ namespace BoggleServer
             while (true)
             {
                 Thread.Sleep(1000);
+
+                //Create a list and find all the games that don't have connected players. 
+                HashSet<BoggleGame> to_delete = new HashSet<BoggleGame>();
+                foreach (BoggleGame game in game_set)
+                {
+                    if (!game.players_connected)
+                    {
+                        to_delete.Add(game);
+                    }
+                }
+                foreach (BoggleGame game in to_delete)
+                {
+                    game_set.Remove(game);
+                }
                 ServerStatus("");
             }      
         }
@@ -209,17 +224,49 @@ namespace BoggleServer
         {
             private Player player_1;
             private Player player_2;
+
             private int game_timer;
+            /// <summary>
+            /// Letters the player can use to submit game objects. 
+            /// </summary>
             private BoggleBoard game_board;
+            
             private HashSet<string> player_1_words;
             private HashSet<string> player_2_words;
+            
+            /// <summary>
+            /// Dictionary used to check players words submitted. 
+            /// </summary>
             private HashSet<string> dictionary;
+            
+            /// <summary>
+            /// Score objects used to keep track of each players score
+            /// </summary>
             private int player_1_score;
             private int player_2_score;
+            
+
+            /// <summary>
+            /// Threading objects used for telling the thread to wait until it hears ssomething from a player. 
+            /// </summary>
             public static ManualResetEvent listen_1 = new ManualResetEvent(false);
             public static ManualResetEvent listen_2 = new ManualResetEvent(false);
-            
+
+            /// <summary>
+            /// Variable used to keep track of the common words played by both opponenets.
+            /// </summary>
+            private HashSet<String> common_words;
+
+            /// <summary>
+            /// Checks the sockets of both players to tell whether or not they are connected. 
+            /// </summary>
             public bool players_connected{get;set;}
+
+            /// <summary>
+            /// Sets for the illegal words
+            /// </summary>
+            private HashSet<String> player_1_illegal;
+            private HashSet<String> player_2_illegal;
 
             public BoggleGame(Player player_1, Player player_2, int game_timer, string default_board, HashSet<string> dictionary)
             {
@@ -292,13 +339,23 @@ namespace BoggleServer
                     if ((Player)payload == player_1 && game_timer > 0)
                     {
                         player_1_words.Add(s.ToUpper());
+
+                        //increment the commmon words counter if the other players queue contains this word. 
+                        if (player_2_words.Contains(s.ToUpper()))
+                            common_words.Add(s.ToUpper());
+
                         Console.WriteLine("Word received from " + player_1.player_name + " : " + s);
                         Listen1();
                     }
                     else if ((Player)payload == player_2 && game_timer > 0)
-                    {
-                        Console.WriteLine("Word received from " + player_2.player_name + " : " + s);
+                    {               
                         player_2_words.Add(s.ToUpper());
+
+                        //increment the commmon words counter if the other players queue contains this word. 
+                        if (player_1_words.Contains(s.ToUpper()))
+                            common_words.Add(s.ToUpper());
+
+                        Console.WriteLine("Word received from " + player_2.player_name + " : " + s);
                         Listen2();
                     }
                 }
@@ -323,11 +380,15 @@ namespace BoggleServer
                     }
                     else if (player_2_words.Contains(word))
                     {
+                        //word in common so remove points from this player
                         toDelete.Add(word);
+                        
                     }
-                    else if (!this.dictionary.Contains(word))
+                    else if (!this.dictionary.Contains(word) || !this.game_board.CanBeFormed(word))
                     {
+                        //illegal word was entered
                         player_1_score--;
+                        player_1_illegal.Add(word);
                     }
                     else if (word.Length == 3 || word.Length == 4)
                     {
@@ -361,9 +422,11 @@ namespace BoggleServer
                     {
                         toDelete.Add(word);
                     }
-                    else if (!this.dictionary.Contains(word))
+                    else if (!this.dictionary.Contains(word) || !this.game_board.CanBeFormed(word))
                     {
+                        //player entered an illegal word
                         player_2_score--;
+                        player_2_illegal.Add(word);
                     }
                     else if (word.Length == 3 || word.Length == 4)
                     {
@@ -394,7 +457,7 @@ namespace BoggleServer
                         player_2_words.Remove(word);
                 }
             }
-            private void SendScore(Object thingy)
+            private void SendScore()
             {
                 if (!players_connected)
                 {
@@ -414,9 +477,12 @@ namespace BoggleServer
                 }
 
             }
+           
+            /// <summary>
+            /// Send the time ever second to player 1 and player 2. 
+            /// </summary>
             private void SendTime()
             {
-                
                 while (this.game_timer > 0 && players_connected)
                 {
                     Thread.Sleep(1000);
@@ -427,6 +493,57 @@ namespace BoggleServer
                         this.game_timer--;
                     }
                 }
+                if (game_timer == 0 && players_connected)
+                {
+                    EndGame();
+                }
+            }
+    
+            /// <summary>
+            /// When time has expired, the server ignores any further communication from the clients 
+            /// and shuts down the game. First, it transmits the final score to both clients as described
+            /// above. Next, it transmits a game summary line to both clients. Suppose that during the
+            /// game the client played a legal words that weren't played by the opponent, the opponent 
+            /// played b legal words that weren't played by the client, both players played c legal words
+            /// in common, the client played d illegal words, and the opponent played e illegal words.
+            /// The game summary command should be "STOP a #1 b #2 c #3 d #4 e #5", where a, b, c, d, and 
+            /// e are the counts described above and #1, #2, #3, #4, and #5 are the corresponding 
+            /// space-separated lists of words.
+            /// </summary>
+            private void EndGame()
+            {
+                SendScore();
+                string player_1_summary = String.Format("STOP {0} {1} {2} {3} {5} {6} {7} {8} {9} {10}\n", 
+                    player_1_words.Count(),   
+                    String.Join(" ", player_1_words),
+                    player_2_words.Count(),
+                    String.Join(" ", player_2_words),
+                    common_words.Count(),
+                    String.Join(" ", common_words),
+                    player_1_illegal.Count(),
+                    String.Join(" ", player_1_illegal),
+                    player_2_illegal.Count(),
+                    String.Join(" ", player_2_illegal)                    
+                    );
+
+                string player_2_summary = String.Format("STOP {0} {1} {2} {3} {5} {6} {7} {8} {9} {10}\n",
+                    player_2_words.Count(),
+                    String.Join(" ", player_2_words),
+                    player_1_words.Count(),
+                    String.Join(" ", player_1_words),
+                    common_words.Count(),
+                    String.Join(" ", common_words),
+                    player_2_illegal.Count(),
+                    String.Join(" ", player_2_illegal),
+                    player_1_illegal.Count(),
+                    String.Join(" ", player_1_illegal)
+                    );
+                player_1.string_socket.BeginSend(player_1_summary, (e, o) => { }, player_1.string_socket);
+                player_2.string_socket.BeginSend(player_2_summary, (e, o) => { }, player_2.string_socket);
+                
+                player_1.string_socket.Close();
+                player_2.string_socket.Close();
+                
             }
 
             /// <summary>

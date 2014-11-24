@@ -1,0 +1,9 @@
+C:\Users\Colin\Desktop\BOggle\BoggleServer\bin\Debug\BoggleServer.exe.config
+C:\Users\Colin\Desktop\BOggle\BoggleServer\bin\Debug\BoggleServer.exe
+C:\Users\Colin\Desktop\BOggle\BoggleServer\bin\Debug\BoggleServer.pdb
+C:\Users\Colin\Desktop\BOggle\BoggleServer\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\BOggle\BoggleServer\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\BOggle\BoggleServer\bin\Debug\StringSocket.xml
+C:\Users\Colin\Desktop\BOggle\BoggleServer\obj\Debug\BoggleServer.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Desktop\BOggle\BoggleServer\obj\Debug\BoggleServer.exe
+C:\Users\Colin\Desktop\BOggle\BoggleServer\obj\Debug\BoggleServer.pdb
