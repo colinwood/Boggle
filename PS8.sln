@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringSocket", "StringSocket\StringSocket.csproj", "{8E503579-ED62-438B-B391-44AD56829B97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringSocketTester", "StringSocketTester\StringSocketTester.csproj", "{AEBAF099-7D2E-4911-9324-63574E5A89D6}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D4370881-4A54-4ED0-BA07-1B7A945E89C4}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
@@ -18,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleServer", "BoggleServer\BoggleServer.csproj", "{61449CF1-AD73-45D8-B543-2C2208E23204}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleServerTest", "DummyClient\BoggleServerTest.csproj", "{BFAFF8F8-993D-4AC8-8DEE-A8711B746E09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoggleServerTest1", "BoggleServerTest1\BoggleServerTest1.csproj", "{E8CD644B-323A-4CF3-86D0-7DABB5111162}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
@@ -45,16 +45,6 @@ Global
 		{8E503579-ED62-438B-B391-44AD56829B97}.Release|ARM.ActiveCfg = Release|Any CPU
 		{8E503579-ED62-438B-B391-44AD56829B97}.Release|x64.ActiveCfg = Release|Any CPU
 		{8E503579-ED62-438B-B391-44AD56829B97}.Release|x86.ActiveCfg = Release|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Release|ARM.ActiveCfg = Release|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Release|x64.ActiveCfg = Release|Any CPU
-		{AEBAF099-7D2E-4911-9324-63574E5A89D6}.Release|x86.ActiveCfg = Release|Any CPU
 		{61449CF1-AD73-45D8-B543-2C2208E23204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61449CF1-AD73-45D8-B543-2C2208E23204}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61449CF1-AD73-45D8-B543-2C2208E23204}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -75,6 +65,16 @@ Global
 		{BFAFF8F8-993D-4AC8-8DEE-A8711B746E09}.Release|ARM.ActiveCfg = Release|Any CPU
 		{BFAFF8F8-993D-4AC8-8DEE-A8711B746E09}.Release|x64.ActiveCfg = Release|Any CPU
 		{BFAFF8F8-993D-4AC8-8DEE-A8711B746E09}.Release|x86.ActiveCfg = Release|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Release|x64.ActiveCfg = Release|Any CPU
+		{E8CD644B-323A-4CF3-86D0-7DABB5111162}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

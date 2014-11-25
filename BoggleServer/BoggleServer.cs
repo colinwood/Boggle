@@ -12,11 +12,9 @@ using BB;
 using System.Threading;
 
 
-
-
 namespace BoggleServer
 {
-    class BoggleServer
+    public class BoggleServer
     {
         /// <summary>
         /// Queue to hold the player waiting to play
@@ -59,7 +57,7 @@ namespace BoggleServer
         /// </summary>
         private int time_limit; 
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             int time_limit = 0;
             string dictionary_path = args[1];
@@ -105,6 +103,10 @@ namespace BoggleServer
 
         }
 
+        public void Stop()
+        {
+            this.server.Stop();
+        }
         /// <summary>
         /// Iterates over a given txt file and puts it into a hash set game_set.
         /// </summary>
@@ -355,7 +357,7 @@ namespace BoggleServer
             
 
             /// <summary>
-            /// Threading objects used for telling the thread to wait until it hears ssomething from a player. 
+            /// Threading objecnts used for telling the thread to wait until it hears ssomething from a player. 
             /// </summary>
             public static ManualResetEvent listen_1 = new ManualResetEvent(false);
             public static ManualResetEvent listen_2 = new ManualResetEvent(false);
@@ -629,7 +631,7 @@ namespace BoggleServer
                         if (p1 != player_1_score || p2 != player_2_score)
                         {
                             player_1.string_socket.BeginSend("SCORE " + this.player_1_score + " " + this.player_2_score + "\n", (e, o) => { }, player_1.string_socket);
-                            player_2.string_socket.BeginSend("SCORE " + this.player_1_score + " " + this.player_2_score + "\n", (e, o) => { }, player_1.string_socket);
+                            player_2.string_socket.BeginSend("SCORE " + this.player_2_score + " " + this.player_1_score + "\n", (e, o) => { }, player_2.string_socket);
                         }                   
                 }
             }
