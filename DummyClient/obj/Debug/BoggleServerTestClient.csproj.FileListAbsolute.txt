@@ -1,8 +1,0 @@
-C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\BoggleServerTest.exe.config
-C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\BoggleServerTest.exe
-C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\BoggleServerTest.pdb
-C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\StringSocket.dll
-C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\StringSocket.pdb
-C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\StringSocket.xml
-C:\Users\Colin\Desktop\BOggle\DummyClient\obj\Debug\BoggleServerTest.exe
-C:\Users\Colin\Desktop\BOggle\DummyClient\obj\Debug\BoggleServerTest.pdb

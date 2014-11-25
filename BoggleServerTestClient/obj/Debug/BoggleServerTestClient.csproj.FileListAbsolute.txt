@@ -1,0 +1,17 @@
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\BoggleServerTest.exe.config
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\BoggleServerTest.exe
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\BoggleServerTest.pdb
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\BOggle\DummyClient\bin\Debug\StringSocket.xml
+C:\Users\Colin\Desktop\BOggle\DummyClient\obj\Debug\BoggleServerTest.exe
+C:\Users\Colin\Desktop\BOggle\DummyClient\obj\Debug\BoggleServerTest.pdb
+C:\Users\Colin\Desktop\BOggle\BoggleServerTestClient\bin\Debug\BoggleServerTest.exe.config
+C:\Users\Colin\Desktop\BOggle\BoggleServerTestClient\bin\Debug\BoggleServerTest.exe
+C:\Users\Colin\Desktop\BOggle\BoggleServerTestClient\bin\Debug\BoggleServerTest.pdb
+C:\Users\Colin\Desktop\BOggle\BoggleServerTestClient\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\BOggle\BoggleServerTestClient\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\BOggle\BoggleServerTestClient\bin\Debug\StringSocket.xml
+C:\Users\Colin\Desktop\BOggle\BoggleServerTestClient\obj\Debug\BoggleServerTestClient.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Desktop\BOggle\BoggleServerTestClient\obj\Debug\BoggleServerTest.exe
+C:\Users\Colin\Desktop\BOggle\BoggleServerTestClient\obj\Debug\BoggleServerTest.pdb

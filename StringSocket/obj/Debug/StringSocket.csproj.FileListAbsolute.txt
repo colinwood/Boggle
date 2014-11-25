@@ -11,6 +11,5 @@ C:\Users\Colin\Desktop\PS7\StringSocket\obj\Debug\StringSocket.pdb
 C:\Users\Colin\Desktop\BOggle\StringSocket\bin\Debug\StringSocket.XML
 C:\Users\Colin\Desktop\BOggle\StringSocket\bin\Debug\StringSocket.dll
 C:\Users\Colin\Desktop\BOggle\StringSocket\bin\Debug\StringSocket.pdb
-C:\Users\Colin\Desktop\BOggle\StringSocket\obj\Debug\StringSocket.csprojResolveAssemblyReference.cache
 C:\Users\Colin\Desktop\BOggle\StringSocket\obj\Debug\StringSocket.dll
 C:\Users\Colin\Desktop\BOggle\StringSocket\obj\Debug\StringSocket.pdb
