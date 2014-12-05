@@ -24,36 +24,14 @@ namespace ClientGUI
         {
             gameModel = new Model();
             this.MessageTextBox.Text = "Connecting to server...";
-            
             gameModel.ConnectEvent += ConnectionMade;
             gameModel.StartGameEvent += StartGame;
             gameModel.UpdateScoreEvent += UpdateScore;
-            gameModel.OpponentDisconnectEvent += OpponentDisconnected;
-            gameModel.UpdateTimeEvent += UpdateTime;
-            gameModel.EndGameEvent += EndGame;
+            gameModel.OpponentDisconnectEvent += OpponentDisconnected; 
+            
             
             ThreadPool.QueueUserWorkItem(t => gameModel.Connect(this.PlayerNameTextBox.Text, this.IPAddressTextBox.Text));
             
-        }
-
-        private void EndGame(string GameSummary)
-        {
-            ThreadSafeCall(() => {
-                MessageTextBox.Text = GameSummary;
-                ConnectButton.Enabled = true;
-            }
-            );
-        }
-
-
-
-        private void UpdateTime(string time)
-        {
-            ThreadSafeCall(() =>
-            {
-                Timer.Text = time;            
-            }
-            ); 
         }
 
         private void OpponentDisconnected()
@@ -77,7 +55,7 @@ namespace ClientGUI
                 PlayerScore.Text = p1_score;
                 OpponentScore.Text = p2_score;
             }
-            );   
+                );   
         }
         private void ConnectionMade(bool connection_made)
         {

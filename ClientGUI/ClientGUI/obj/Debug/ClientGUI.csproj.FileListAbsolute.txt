@@ -9,3 +9,17 @@ c:\users\victor\Documents\Victor's files\School\Software Practices\Visual Studio
 C:\Users\Colin\Desktop\ClientGUI\ClientGUI\bin\Debug\ClientGUI.exe.config
 C:\Users\Colin\Desktop\ClientGUI\ClientGUI\obj\Debug\ClientGUI.exe
 C:\Users\Colin\Desktop\ClientGUI\ClientGUI\obj\Debug\ClientGUI.pdb
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\bin\Debug\ClientGUI.exe.config
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\ClientGUI.exe
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\ClientGUI.pdb
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\bin\Debug\ClientGUI.exe
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\bin\Debug\ClientGUI.pdb
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\ClientGUI.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\ClientGUI.Properties.Resources.resources
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\ClientGUI.csproj.GenerateResource.Cache
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\ClientGUI.ClientGUI.resources
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\bin\Debug\BoggleClientModel.dll
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\bin\Debug\BoggleClientModel.pdb
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\bin\Debug\StringSocket.xml

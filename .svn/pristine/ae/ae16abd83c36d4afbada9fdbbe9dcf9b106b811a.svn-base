@@ -14,7 +14,7 @@ namespace BoggleClientModel
     {
         public delegate void Connected(Boolean connection_made);
         public delegate void UpdateScore(String p1_score, String p2_score);
-        public delegate void UpdateTime(String time);
+        public delegate void UpdateTime(String p1_score, String p2_score);
         public delegate void StartGame(string board, int time, string opponent );
         public delegate void EndGame(string GameSummary);
         public delegate void OpponentDisconnect();
@@ -38,7 +38,7 @@ namespace BoggleClientModel
         private string opponent_name;
         private string ip_address;
         private string messages;
-        
+        private string enter_word;
         private StringSocket ss;
         private  ManualResetEvent allDone = new ManualResetEvent(false);
         private TcpClient client;
@@ -52,7 +52,7 @@ namespace BoggleClientModel
 
             this.ip_address = ip_address;
             this.messages = "Looking for an Opponent";
-            
+            this.enter_word = "";
             try
             {
                 client = new TcpClient(ip_address, 2000);
@@ -104,10 +104,9 @@ namespace BoggleClientModel
                 s = s.ToUpper();
                 if (s.Contains("TIME"))
                 {
-                    s = s.Substring(5);
+                    s = s.Substring(6);
                     Int32.TryParse(s, out time);
                     allDone.Set();
-                    UpdateTimeEvent(time.ToString());
                     Listen();
                 }
                 else if (s.Contains("SCORE"))
@@ -120,52 +119,24 @@ namespace BoggleClientModel
                     Listen();
                 }
                 else if (s.Contains("IGNORING"))
-                {                   
+                {
+                    messages = "Please don't try to hack our server, it is smarter than you are";
                     allDone.Set();
                     Listen();
                 }
                 else if (s.Contains("TERMINATED"))
                 {
-                    
+                    messages = "Congratulations your opponent gave up! You Win!";
                     OpponentDisconnectEvent();
                     ss.Close();
                     
                 }
                 else if (s.Contains("STOP"))
                 {
-                    
-                    s = s.Substring(5);
-                    //0 word 0 word 0 word 0 word 0 word
-                    string[] game_summary = Regex.Split(s, @"[0-9]");
-                    StringBuilder stats = new StringBuilder();
-                    for(int i = 1; i < 6 ; i++){
-                        
-                        if (i == 1)
-                        {
-                            stats.AppendLine("Player legal words:");
-                        }
-                        if (i == 2)
-                        {
-                            stats.AppendLine("Opponent legal words:");
-                        }
-                        if (i == 3)
-                        {
-                            stats.AppendLine("Common words:");
-                        }
-                        if (i == 4)
-                        {
-                            stats.AppendLine("Player illegal words:");
-                        }
-                        if (i == 5)
-                        {
-                            stats.AppendLine("Opponent illegal words:");
-                        }
+                    s = s.Substring(6);
+                    string[] game_summary = Regex.Split(s, @"[0-9]+");
 
-                        stats.AppendLine(game_summary[i] + "\n");  
-                  
-                    }
-                    
-                    EndGameEvent(stats.ToString());
+                    messages = String.Join("\n", game_summary);
                     ss.Close();
                 }
                 

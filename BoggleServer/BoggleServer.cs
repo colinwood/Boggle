@@ -549,13 +549,12 @@ namespace BoggleServer
                     else if (player_2_words.Contains(word))
                     {
                         //word in common so remove points from this player
-                        toDelete.Add(word);
-                        
+                        toDelete.Add(word);                 
                     }
                     else if (!this.dictionary.Contains(word) || !this.game_board.CanBeFormed(word))
                     {
                         //illegal word was entered
-                        player_1_score--;
+                                            
                         player_1_illegal.Add(word);
                     }
                     else if (word.Length == 3 || word.Length == 4)
@@ -594,8 +593,9 @@ namespace BoggleServer
                     else if (!this.dictionary.Contains(word) || !this.game_board.CanBeFormed(word))
                     {
                         //player entered an illegal word
-                        player_2_score--;
-                        player_2_illegal.Add(word);
+                        
+                        player_2_illegal.Add(word);                     
+
                     }
                     else if (word.Length == 3 || word.Length == 4)
                     {
@@ -619,6 +619,20 @@ namespace BoggleServer
                     }
 
                 }
+                player_1_score = player_1_score - player_1_illegal.Count;
+                player_2_score = player_2_score - player_2_illegal.Count;
+
+                foreach (string s in player_1_illegal)
+                {
+                    if(player_1_words.Contains(s))
+                    player_1_words.Remove(s);
+                }
+                foreach (string s in player_2_illegal)
+                {
+                    if(player_2_words.Contains(s))
+                    player_2_words.Remove(s);
+                }
+
                 //Delete any invalid words. 
                 foreach(String word in toDelete)
                 {
