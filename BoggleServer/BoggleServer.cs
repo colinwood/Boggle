@@ -459,7 +459,7 @@ namespace BoggleServer
             /// </summary>
             private void Listen1()
             {
-                if (!players_connected)
+                if (!players_connected || this.game_timer == 0)
                 {
                     return;
                 }
@@ -472,8 +472,9 @@ namespace BoggleServer
             /// </summary>
             private void Listen2()
             {
-                if (!players_connected)
+                if (!players_connected || this.game_timer == 0 )
                 {
+                    
                     return;
                 }
                 player_2.string_socket.BeginReceive(RCallback, player_2);
@@ -489,39 +490,40 @@ namespace BoggleServer
             /// <param name="payload">Who sent it.</param>
             private void RCallback(String s, Exception e, Object payload)
             {
-                ///Always check to see if the players are still connected before using a socket. 
-                if (players_connected)
+                if(s.Contains("WORD "))
                 {
-                    //message came from player 1
-                    if ((Player)payload == player_1 && game_timer > 0)
+                    s = s.Substring(5);
+                    ///Always check to see if the players are still connected before using a socket. 
+                    if (players_connected)
                     {
-                        player_1_words.Add(s.ToUpper());
+                        //message came from player 1
+                        if ((Player)payload == player_1 && game_timer > 0)
+                        {
+                            player_1_words.Add(s.ToUpper());
 
-                        //increment the commmon words counter if the other players queue contains this word. 
-                        if (player_2_words.Contains(s.ToUpper()))
-                            common_words.Add(s.ToUpper());
+                            //increment the commmon words counter if the other players queue contains this word. 
+                            if (player_2_words.Contains(s.ToUpper()))
+                                common_words.Add(s.ToUpper());
                         
-                        //Print that it showed up on the server and continue to listen until the game is over
-                        Console.WriteLine("Word received from " + player_1.player_name + " : " + s);
-                        Listen1();
+                            //Print that it showed up on the server and continue to listen until the game is over
+                            Console.WriteLine("Word received from " + player_1.player_name + " : " + s);
+                            Listen1();
+                        }
+
+                        //message came from player 2
+                        else if ((Player)payload == player_2 && game_timer > 0)
+                        {               
+                            player_2_words.Add(s.ToUpper());
+
+                            //increment the commmon words counter if the other players queue contains this word. 
+                            if (player_1_words.Contains(s.ToUpper()))
+                                common_words.Add(s.ToUpper());
+
+                            Console.WriteLine("Word received from " + player_2.player_name + " : " + s);
+                            Listen2();
+                        }
                     }
-
-                    //message came from player 2
-                    else if ((Player)payload == player_2 && game_timer > 0)
-                    {               
-                        player_2_words.Add(s.ToUpper());
-
-                        //increment the commmon words counter if the other players queue contains this word. 
-                        if (player_1_words.Contains(s.ToUpper()))
-                            common_words.Add(s.ToUpper());
-
-                        Console.WriteLine("Word received from " + player_2.player_name + " : " + s);
-                        Listen2();
-                    }
-                }
-                else
-                {
-                    return;
+                
                 }
             }
 
@@ -655,8 +657,8 @@ namespace BoggleServer
                     Thread.Sleep(1000);
                     if (player_1.string_socket.SocketConnected() && player_2.string_socket.SocketConnected())
                     {
-                        player_1.string_socket.BeginSend(game_timer.ToString() + "\n", (e, o) => { }, player_1.string_socket);
-                        player_2.string_socket.BeginSend(game_timer.ToString() + "\n", (e, o) => { }, player_2.string_socket);
+                        player_1.string_socket.BeginSend("TIME " + game_timer.ToString() + "\n", (e, o) => { }, player_1.string_socket);
+                        player_2.string_socket.BeginSend("TIME " + game_timer.ToString() + "\n", (e, o) => { }, player_2.string_socket);
                         this.game_timer--;
                     }
                 }
@@ -680,7 +682,7 @@ namespace BoggleServer
             private void EndGame()
             {
                 //format a string to be sent to the client with a summary
-                string player_1_summary = String.Format("STOP {0} {1} {2} {3} {5} {6} {7} {8} {9}\n", 
+                string player_1_summary = String.Format("STOP {0} {1} {2} {3} {4} {5} {6} {7} {8} {9}\n", 
                     player_1_words.Count(),   
                     String.Join(" ", player_1_words),
                     player_2_words.Count(),
@@ -693,7 +695,7 @@ namespace BoggleServer
                     String.Join(" ", player_2_illegal)                    
                     );
                 
-                string player_2_summary = String.Format("STOP {0} {1} {2} {3} {5} {6} {7} {8} {9}\n",
+                string player_2_summary = String.Format("STOP {0} {1} {2} {3} {4} {5} {6} {7} {8} {9}\n",
                     player_2_words.Count(),
                     String.Join(" ", player_2_words),
                     player_1_words.Count(),

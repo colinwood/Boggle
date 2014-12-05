@@ -111,7 +111,7 @@ namespace BoggleServer
             t3.Start();
 
             Thread.Sleep(3000);
-            ss1.BeginSend("blowfish\n", (e, o) => { }, ss1);
+            ss1.BeginSend("WORD SAKDJHASK\n", (e, o) => { }, ss1);
             Thread.Sleep(3000);
 
             Assert.AreEqual(true , String.Join(" ", incoming_message_stream1).Contains("SCORE -1 0"));
@@ -147,7 +147,7 @@ namespace BoggleServer
 
 
             Thread.Sleep(3000);
-            ss1.BeginSend("blowfish\n", (e, o) => { }, ss1);
+            ss1.BeginSend("WORD BLOWfish\n", (e, o) => { }, ss1);
             Thread.Sleep(20000);
 
             Assert.AreEqual(true, String.Join(" ", incoming_message_stream1).Contains("STOP 1 BLOWFISH"));
@@ -181,23 +181,23 @@ namespace BoggleServer
 
             Thread.Sleep(1000);
 
-            ss1.BeginSend("AAAA\n", (e, o) => { }, ss1);
+            ss1.BeginSend("WORD AAAA\n", (e, o) => { }, ss1);
             Thread.Sleep(1000);
             Assert.AreEqual(true, String.Join(" ", incoming_message_stream1).Contains("SCORE 1 0"));
             Assert.AreEqual(true, String.Join(" ", incoming_message_stream2).Contains("SCORE 0 1"));
 
 
-            ss2.BeginSend("AAAA\n", (e, o) => { }, ss2);
+            ss2.BeginSend("WORD AAAA\n", (e, o) => { }, ss2);
             Thread.Sleep(1000);
             Assert.AreEqual(true, String.Join(" ", incoming_message_stream1).Contains("SCORE 0 0"));
             Assert.AreEqual(true, String.Join(" ", incoming_message_stream2).Contains("SCORE 0 0"));
 
-            ss2.BeginSend("BIRD\n", (e, o) => { }, ss2);
+            ss2.BeginSend("WORD BIRD\n", (e, o) => { }, ss2);
             Thread.Sleep(1000);
             Assert.AreEqual(true, String.Join(" ", incoming_message_stream1).Contains("SCORE 0 -1"));
             Assert.AreEqual(true, String.Join(" ", incoming_message_stream2).Contains("SCORE -1 0"));
 
-            ss2.BeginSend("AAAAA\n", (e, o) => { }, ss2);
+            ss2.BeginSend("WORD AAAAA\n", (e, o) => { }, ss2);
             Thread.Sleep(1000);
             Assert.AreEqual(true, String.Join(" ", incoming_message_stream1).Contains("SCORE 0 1"));
             Assert.AreEqual(true, String.Join(" ", incoming_message_stream2).Contains("SCORE 1 0"));

@@ -37,7 +37,7 @@ namespace DummyClient
             while (true)
             {
                 string word = Console.ReadLine();
-                ss.BeginSend(word + "\n", (e, o) => { }, name);
+                ss.BeginSend("WORD " + word + "\n", (e, o) => { }, word);
             }
         }
 

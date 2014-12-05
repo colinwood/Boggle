@@ -1,0 +1,10 @@
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\bin\Debug\BoggleClientTest.dll
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\bin\Debug\BoggleClientTest.pdb
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\bin\Debug\BoggleClientModel.dll
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\bin\Debug\StringSocket.dll
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\bin\Debug\BoggleClientModel.pdb
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\bin\Debug\StringSocket.pdb
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\bin\Debug\StringSocket.xml
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\obj\Debug\BoggleClientTest.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\obj\Debug\BoggleClientTest.dll
+C:\Users\Colin\Desktop\BOggle\BoggleClientTest\obj\Debug\BoggleClientTest.pdb
