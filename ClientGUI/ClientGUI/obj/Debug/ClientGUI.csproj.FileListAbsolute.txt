@@ -1,0 +1,11 @@
+c:\users\victor\Documents\Victor's files\School\Software Practices\Visual Studio Projects\ClientGUI\ClientGUI\bin\Debug\ClientGUI.exe.config
+c:\users\victor\Documents\Victor's files\School\Software Practices\Visual Studio Projects\ClientGUI\ClientGUI\obj\Debug\ClientGUI.csprojResolveAssemblyReference.cache
+c:\users\victor\Documents\Victor's files\School\Software Practices\Visual Studio Projects\ClientGUI\ClientGUI\obj\Debug\ClientGUI.Properties.Resources.resources
+c:\users\victor\Documents\Victor's files\School\Software Practices\Visual Studio Projects\ClientGUI\ClientGUI\obj\Debug\ClientGUI.csproj.GenerateResource.Cache
+c:\users\victor\Documents\Victor's files\School\Software Practices\Visual Studio Projects\ClientGUI\ClientGUI\bin\Debug\ClientGUI.exe
+c:\users\victor\Documents\Victor's files\School\Software Practices\Visual Studio Projects\ClientGUI\ClientGUI\bin\Debug\ClientGUI.pdb
+c:\users\victor\Documents\Victor's files\School\Software Practices\Visual Studio Projects\ClientGUI\ClientGUI\obj\Debug\ClientGUI.exe
+c:\users\victor\Documents\Victor's files\School\Software Practices\Visual Studio Projects\ClientGUI\ClientGUI\obj\Debug\ClientGUI.pdb
+C:\Users\Colin\Desktop\ClientGUI\ClientGUI\bin\Debug\ClientGUI.exe.config
+C:\Users\Colin\Desktop\ClientGUI\ClientGUI\obj\Debug\ClientGUI.exe
+C:\Users\Colin\Desktop\ClientGUI\ClientGUI\obj\Debug\ClientGUI.pdb
