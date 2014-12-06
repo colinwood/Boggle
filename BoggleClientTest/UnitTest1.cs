@@ -2,8 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BoggleClientModel;
 using System.Threading;
+using BoggleClientModel;
 
-namespace BoggleClientTest
+namespace BoggleClientModel
 {
     [TestClass]
     public class UnitTest1

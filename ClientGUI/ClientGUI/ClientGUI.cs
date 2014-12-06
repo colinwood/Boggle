@@ -18,35 +18,66 @@ namespace ClientGUI
 
         public ClientGUI() { InitializeComponent(); }
         private Model gameModel;
-        private Boolean serverConnected;
-
+        
+        /// <summary>
+        /// Connect to a game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ConnectButton_Click(object sender, EventArgs e)
         {
             gameModel = new Model();
             this.MessageTextBox.Text = "Connecting to server...";
             
+
+            //Handle the events using the correct methods
             gameModel.ConnectEvent += ConnectionMade;
             gameModel.StartGameEvent += StartGame;
             gameModel.UpdateScoreEvent += UpdateScore;
             gameModel.OpponentDisconnectEvent += OpponentDisconnected;
             gameModel.UpdateTimeEvent += UpdateTime;
             gameModel.EndGameEvent += EndGame;
+            gameModel.ServerDisconnectEvent += ServerDisconnect;
+            
             
             ThreadPool.QueueUserWorkItem(t => gameModel.Connect(this.PlayerNameTextBox.Text, this.IPAddressTextBox.Text));
             
         }
 
+
+        /// <summary>
+        /// What to do when server disconnects
+        /// </summary>
+        private void ServerDisconnect()
+        {
+            ThreadSafeCall(() =>
+            {
+                MessageTextBox.Text = "Connection to server lost click find a player to rejoin";
+                DisconnectButton.Enabled = false;
+                ConnectButton.Enabled = true;
+            }
+                );
+        }
+
+        /// <summary>
+        /// End the game and corresponding gui buttons
+        /// </summary>
+        /// <param name="GameSummary"></param>
         private void EndGame(string GameSummary)
         {
             ThreadSafeCall(() => {
                 MessageTextBox.Text = GameSummary;
                 ConnectButton.Enabled = true;
+                DisconnectButton.Enabled = false;
             }
             );
         }
 
 
-
+        /// <summary>
+        /// Update the time
+        /// </summary>
+        /// <param name="time"></param>
         private void UpdateTime(string time)
         {
             ThreadSafeCall(() =>
@@ -65,10 +96,6 @@ namespace ClientGUI
             });
         }
 
-        private void ResetBord()
-        {
-
-        }
 
         private void UpdateScore(string p1_score, string p2_score)
         {
@@ -83,9 +110,11 @@ namespace ClientGUI
         {
             ThreadSafeCall(() =>{
     
-            if(connection_made == true){
-                    this.serverConnected = true;
+                if(connection_made == true){
+                    this.ConnectButton.Enabled = false;
+                    this.DisconnectButton.Enabled = true;                  
                     this.MessageTextBox.Text = "Connected to server waiting for opponent...";
+                    
                 }
                 else
                 {
@@ -101,6 +130,13 @@ namespace ClientGUI
             this.Invoke(method); 
 
         }
+
+        /// <summary>
+        /// Set up the board and initalize all the values of the gui fields. 
+        /// </summary>
+        /// <param name="board"></param>
+        /// <param name="time"></param>
+        /// <param name="opponent"></param>
         private void StartGame(string board, int time, string opponent)
         {
             ThreadSafeCall(() => {
@@ -127,13 +163,11 @@ namespace ClientGUI
             PlayerScore.Text = "0";
             OpponentScore.Text = "0";
             WordEntry.Enabled = true;
-            DisconnectButton.Enabled = false;
+            DisconnectButton.Enabled = true;
             MessageTextBox.Text = "Game Started! Good luck!";
         }
         );
         }
-
-
 
         private void ConnectInfoEntered()
         {
@@ -143,13 +177,24 @@ namespace ClientGUI
             }
         }
 
-
-
+        /// <summary>
+        /// Disconnect from the server.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DisconnectButton_Click(object sender, EventArgs e)
         {
-            
+            gameModel.Disconnect();
+            this.DisconnectButton.Enabled = false;
+            this.ConnectButton.Enabled = true;
+            this.MessageTextBox.Text = "You have disconnected.. Click find a player to join a game.";
         }
 
+        /// <summary>
+        /// play a word
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnterPressed(object sender, KeyEventArgs e)
         {
             ThreadSafeCall(() =>
@@ -158,7 +203,6 @@ namespace ClientGUI
                 {
                     gameModel.PlayWord(WordEntry.Text);
                     WordEntry.Text = "";
-
                 }
             }
             );
@@ -172,6 +216,25 @@ namespace ClientGUI
         private void IPAddressTextBox_TextChanged(object sender, EventArgs e)
         {
             ConnectInfoEntered();
+        }
+
+        /// <summary>
+        /// Just a hint on entering an ip. Note the game will not allow you to connect unless you enter in a valid one. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void IPAddressTextBox_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip1 = new ToolTip();
+            // Set up the delays for the ToolTip.
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ShowAlways = true;
+            
+
+            // Set up the ToolTip text for the Button and Checkbox.
+            toolTip1.SetToolTip(this.IPAddressTextBox, "Enter a valid IP such as : \"localhost\" or \"54.148.22.148\" " ) ;
+            toolTip1.Active = true;
         }
 
     }

@@ -1,0 +1,12 @@
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\b\BoggleClientModel.Fakes.xml
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\b\BoggleClientModel.Fakes.dll
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\b\BoggleClientModel.Fakes.pdb
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\b\BoggleClientModel.dll
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\b\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\b\StringSocket.dll
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\b\BoggleClientModel.pdb
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\b\StringSocket.pdb
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\b\StringSocket.xml
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\o\f.csprojResolveAssemblyReference.cache
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\o\BoggleClientModel.Fakes.dll
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\obj\Debug\Fakes\bcm\o\BoggleClientModel.Fakes.pdb

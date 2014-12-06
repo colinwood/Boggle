@@ -8,10 +8,19 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace BoggleClientModel
 {
+    /// <summary>
+    /// Represent the M in mvc. Communicates with the gui and the server 
+    /// to allow for smooth seperation of logic and control. 
+    /// </summary>
     public class Model
     {
+        /// <summary>
+        /// Event delegates for the individual occurences within a game
+        /// </summary>
+        
         public delegate void Connected(Boolean connection_made);
         public delegate void UpdateScore(String p1_score, String p2_score);
         public delegate void UpdateTime(String time);
@@ -20,6 +29,9 @@ namespace BoggleClientModel
         public delegate void OpponentDisconnect();
         public delegate void ServerDisconnect();
 
+        /// <summary>
+        /// Events to be fired at the corresponding times. 
+        /// </summary>
         public event Connected ConnectEvent;
         public event UpdateScore UpdateScoreEvent;
         public event UpdateTime UpdateTimeEvent;
@@ -29,7 +41,9 @@ namespace BoggleClientModel
         public event ServerDisconnect ServerDisconnectEvent;
 
 
-
+        /// <summary>
+        /// Private member variables that are pretty self explanatory
+        /// </summary>
         private int time;
         private string board;
         private int self_score;
@@ -37,7 +51,7 @@ namespace BoggleClientModel
         private string self_name;
         private string opponent_name;
         private string ip_address;
-        private string messages;
+        private Boolean server_connected;
         
         private StringSocket ss;
         private  ManualResetEvent allDone = new ManualResetEvent(false);
@@ -48,10 +62,15 @@ namespace BoggleClientModel
         {
         }
 
+        /// <summary>
+        /// OPens up a socket and connects to the appropriate server using the geven ip address
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="ip_address"></param>
         public void Connect(string name, string ip_address){
 
             this.ip_address = ip_address;
-            this.messages = "Looking for an Opponent";
+            
             
             try
             {
@@ -62,7 +81,9 @@ namespace BoggleClientModel
                 
                 if (ss.SocketConnected())
                 {
+                    
                     ConnectEvent(true);
+                    ThreadPool.QueueUserWorkItem(o => MoniterServer());
                     ss.BeginSend("PLAY " + name + "\n", SendMessageCallback, name);
                     ss.BeginReceive(NewGameCallBack, ss);
                     allDone.WaitOne();
@@ -80,6 +101,26 @@ namespace BoggleClientModel
             
         }
 
+        /// <summary>
+        /// Loop that checks on the server staus every half second and 
+        /// fires the server disconnect event if the server shuts down.
+        /// </summary>
+        private void MoniterServer()
+        {
+            server_connected = true;
+            while (server_connected)
+            {
+                Thread.Sleep(500);
+                server_connected = ss.SocketConnected();
+            }
+            ServerDisconnectEvent();
+        }
+
+        /// <summary>
+        /// Callback for when message is sent. Checks for exceptions. 
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="o"></param>
         private void SendMessageCallback(Exception e, object o)
         {
             if (e != null)
@@ -89,8 +130,13 @@ namespace BoggleClientModel
             }
         }
 
+
+        /// <summary>
+        /// Constantly listens to the server for connections. 
+        /// </summary>
         private void Listen()
         {
+
             if (ss.SocketConnected())
             {
                 ss.BeginReceive(ListenCallback, ss);
@@ -98,6 +144,20 @@ namespace BoggleClientModel
             }
         }
 
+        /// <summary>
+        /// Closes the socket connection appropriately
+        /// </summary>
+        public void Disconnect()
+        {
+            ss.Close();
+        }
+
+        /// <summary>
+        /// Deciphers what typ eof message the server send and fires off the appropriate event accordingly. 
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        /// <param name="payload"></param>
         public void ListenCallback(String s, Exception e, object payload)
         {
             
@@ -173,6 +233,12 @@ namespace BoggleClientModel
             
         }
 
+        /// <summary>
+        /// Fires the appropriate event callback for a new game
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        /// <param name="payload"></param>
         public void NewGameCallBack(String s, Exception e, object payload)
         {
 
@@ -197,6 +263,10 @@ namespace BoggleClientModel
             }
         }
 
+        /// <summary>
+        /// Sends the word to play. 
+        /// </summary>
+        /// <param name="s"></param>
         public void PlayWord(String s)
         {
             ss.BeginSend("WORD " + s + "\n", (e, o) => { }, s);

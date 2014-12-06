@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BoggleClientModel.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:BoggleClientModel.Fakes.ShimModel">
+            <summary>Shim type of BoggleClientModel.Model</summary>
+        </member>
+        <member name="M:BoggleClientModel.Fakes.ShimModel.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:BoggleClientModel.Fakes.ShimModel.#ctor(BoggleClientModel.Model)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:BoggleClientModel.Fakes.ShimModel.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:BoggleClientModel.Fakes.ShimModel.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.ConnectEventAddModelConnected">
+            <summary>Sets the shim of Model.add_ConnectEvent(Connected value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.ConnectEventRemoveModelConnected">
+            <summary>Sets the shim of Model.remove_ConnectEvent(Connected value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.ConnectStringString">
+            <summary>Sets the shim of Model.Connect(String name, String ip_address)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.Constructor">
+            <summary>Sets the shim of Model.Model()</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.Disconnect">
+            <summary>Sets the shim of Model.Disconnect()</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.EndGameEventAddModelEndGame">
+            <summary>Sets the shim of Model.add_EndGameEvent(EndGame value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.EndGameEventRemoveModelEndGame">
+            <summary>Sets the shim of Model.remove_EndGameEvent(EndGame value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.Listen">
+            <summary>Sets the shim of Model.Listen()</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.ListenCallbackStringExceptionObject">
+            <summary>Sets the shim of Model.ListenCallback(String s, Exception e, Object payload)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.MoniterServer">
+            <summary>Sets the shim of Model.MoniterServer()</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.NewGameCallBackStringExceptionObject">
+            <summary>Sets the shim of Model.NewGameCallBack(String s, Exception e, Object payload)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.OpponentDisconnectEventAddModelOpponentDisconnect">
+            <summary>Sets the shim of Model.add_OpponentDisconnectEvent(OpponentDisconnect value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.OpponentDisconnectEventRemoveModelOpponentDisconnect">
+            <summary>Sets the shim of Model.remove_OpponentDisconnectEvent(OpponentDisconnect value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.PlayWordString">
+            <summary>Sets the shim of Model.PlayWord(String s)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.SendMessageCallbackExceptionObject">
+            <summary>Sets the shim of Model.SendMessageCallback(Exception e, Object o)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.ServerDisconnectEventAddModelServerDisconnect">
+            <summary>Sets the shim of Model.add_ServerDisconnectEvent(ServerDisconnect value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.ServerDisconnectEventRemoveModelServerDisconnect">
+            <summary>Sets the shim of Model.remove_ServerDisconnectEvent(ServerDisconnect value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.StartGameEventAddModelStartGame">
+            <summary>Sets the shim of Model.add_StartGameEvent(StartGame value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.StartGameEventRemoveModelStartGame">
+            <summary>Sets the shim of Model.remove_StartGameEvent(StartGame value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.UpdateScoreEventAddModelUpdateScore">
+            <summary>Sets the shim of Model.add_UpdateScoreEvent(UpdateScore value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.UpdateScoreEventRemoveModelUpdateScore">
+            <summary>Sets the shim of Model.remove_UpdateScoreEvent(UpdateScore value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.UpdateTimeEventAddModelUpdateTime">
+            <summary>Sets the shim of Model.add_UpdateTimeEvent(UpdateTime value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.UpdateTimeEventRemoveModelUpdateTime">
+            <summary>Sets the shim of Model.remove_UpdateTimeEvent(UpdateTime value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel._Connectb__0Object">
+            <summary>Sets the shim of Model.&lt;Connect&gt;b__0(Object o)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel._Connectb__1">
+            <summary>Sets the shim of Model.&lt;Connect&gt;b__1()</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel._PlayWordb__4ExceptionObject">
+            <summary>Sets the shim of Model.&lt;PlayWord&gt;b__4(Exception e, Object o)</summary>
+        </member>
+        <member name="T:BoggleClientModel.Fakes.ShimModel.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.ConnectEventAddModelConnected">
+            <summary>Sets the shim of Model.add_ConnectEvent(Connected value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.ConnectEventRemoveModelConnected">
+            <summary>Sets the shim of Model.remove_ConnectEvent(Connected value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.ConnectStringString">
+            <summary>Sets the shim of Model.Connect(String name, String ip_address)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.Disconnect">
+            <summary>Sets the shim of Model.Disconnect()</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.EndGameEventAddModelEndGame">
+            <summary>Sets the shim of Model.add_EndGameEvent(EndGame value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.EndGameEventRemoveModelEndGame">
+            <summary>Sets the shim of Model.remove_EndGameEvent(EndGame value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.Listen">
+            <summary>Sets the shim of Model.Listen()</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.ListenCallbackStringExceptionObject">
+            <summary>Sets the shim of Model.ListenCallback(String s, Exception e, Object payload)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.MoniterServer">
+            <summary>Sets the shim of Model.MoniterServer()</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.NewGameCallBackStringExceptionObject">
+            <summary>Sets the shim of Model.NewGameCallBack(String s, Exception e, Object payload)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.OpponentDisconnectEventAddModelOpponentDisconnect">
+            <summary>Sets the shim of Model.add_OpponentDisconnectEvent(OpponentDisconnect value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.OpponentDisconnectEventRemoveModelOpponentDisconnect">
+            <summary>Sets the shim of Model.remove_OpponentDisconnectEvent(OpponentDisconnect value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.PlayWordString">
+            <summary>Sets the shim of Model.PlayWord(String s)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.SendMessageCallbackExceptionObject">
+            <summary>Sets the shim of Model.SendMessageCallback(Exception e, Object o)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.ServerDisconnectEventAddModelServerDisconnect">
+            <summary>Sets the shim of Model.add_ServerDisconnectEvent(ServerDisconnect value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.ServerDisconnectEventRemoveModelServerDisconnect">
+            <summary>Sets the shim of Model.remove_ServerDisconnectEvent(ServerDisconnect value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.StartGameEventAddModelStartGame">
+            <summary>Sets the shim of Model.add_StartGameEvent(StartGame value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.StartGameEventRemoveModelStartGame">
+            <summary>Sets the shim of Model.remove_StartGameEvent(StartGame value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.UpdateScoreEventAddModelUpdateScore">
+            <summary>Sets the shim of Model.add_UpdateScoreEvent(UpdateScore value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.UpdateScoreEventRemoveModelUpdateScore">
+            <summary>Sets the shim of Model.remove_UpdateScoreEvent(UpdateScore value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.UpdateTimeEventAddModelUpdateTime">
+            <summary>Sets the shim of Model.add_UpdateTimeEvent(UpdateTime value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances.UpdateTimeEventRemoveModelUpdateTime">
+            <summary>Sets the shim of Model.remove_UpdateTimeEvent(UpdateTime value)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances._Connectb__0Object">
+            <summary>Sets the shim of Model.&lt;Connect&gt;b__0(Object o)</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.ShimModel.AllInstances._Connectb__1">
+            <summary>Sets the shim of Model.&lt;Connect&gt;b__1()</summary>
+        </member>
+        <member name="T:BoggleClientModel.Fakes.StubModel">
+            <summary>Stub type of BoggleClientModel.Model</summary>
+        </member>
+        <member name="M:BoggleClientModel.Fakes.StubModel.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:BoggleClientModel.Fakes.StubModel.InitializeStub">
+            <summary>Initializes a new instance of type StubModel</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.StubModel.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.StubModel.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:BoggleClientModel.Fakes.StubModel.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+    </members>
+</doc>

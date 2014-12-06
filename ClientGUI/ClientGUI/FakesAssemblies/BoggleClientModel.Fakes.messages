@@ -1,0 +1,7 @@
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\Fakes\BoggleClientModel.fakes : warning : Cannot generate shim for BoggleClientModel.Model+Connected: type is a delegate.
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\Fakes\BoggleClientModel.fakes : warning : Cannot generate shim for BoggleClientModel.Model+EndGame: type is a delegate.
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\Fakes\BoggleClientModel.fakes : warning : Cannot generate shim for BoggleClientModel.Model+OpponentDisconnect: type is a delegate.
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\Fakes\BoggleClientModel.fakes : warning : Cannot generate shim for BoggleClientModel.Model+ServerDisconnect: type is a delegate.
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\Fakes\BoggleClientModel.fakes : warning : Cannot generate shim for BoggleClientModel.Model+StartGame: type is a delegate.
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\Fakes\BoggleClientModel.fakes : warning : Cannot generate shim for BoggleClientModel.Model+UpdateScore: type is a delegate.
+C:\Users\Colin\Desktop\BOggle\ClientGUI\ClientGUI\Fakes\BoggleClientModel.fakes : warning : Cannot generate shim for BoggleClientModel.Model+UpdateTime: type is a delegate.
